@@ -6,10 +6,7 @@
   <title>Windsurfing Spots</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
-  <link rel="stylesheet" href="css/style.css?v=8">
+  <link rel="stylesheet" href="css/style.css?v=9">
 </head>
 <body>
   <header class="topbar">
@@ -33,7 +30,14 @@
       </div>
     </nav>
     <p class="greeting">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L12 18 M12 3 C16 7 18 12 18 16 L12 16 Z M12 6 C9 9 7.5 12.5 7 15.5 L12 15.5" /><path d="M3 20 C5 18.5 7 18.5 9 20 S13 21.5 15 20 S19 18.5 21 20" /></svg>
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <path class="sail" d="M19.5 2.5 C25 7 28.5 14 28 21 L18.2 21.5 Z" />
+        <path class="mast" d="M19.5 2.5 L18 24" />
+        <circle class="body" cx="9" cy="8.8" r="2" />
+        <path class="rider" d="M9.6 11.5 L11.6 17.5 L9.2 24 M11.6 17.5 L14.2 24 M10.3 13.4 L18.6 13" />
+        <path class="board" d="M3 24.5 H28.5 C27.5 26 26 26.6 23.5 26.6 H5.5 C4.3 26.6 3.3 25.7 3 24.5 Z" />
+        <path class="water" d="M2 29.5 C4.5 28 7 28 9.5 29.5 S14.5 31 17 29.5 S22 28 24.5 29.5 S29 31 30 30" />
+      </svg>
       Greetings from Pervalka, Lithuania
     </p>
     <!-- Hidden native selects hold the current values for the map logic. -->
@@ -55,7 +59,7 @@
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
           integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script src="js/spots.js?v=8"></script>
-  <script src="js/app.js?v=8"></script>
+  <script src="js/spots.js?v=9"></script>
+  <script src="js/app.js?v=9"></script>
 </body>
 </html>
