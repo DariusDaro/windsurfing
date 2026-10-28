@@ -85,7 +85,7 @@ function update() {
   const spots = topSpots(month, continent);
   const markers = [];
 
-  list.innerHTML = `<h2>Top ${spots.length} ${continent === "All world" ? "in the world" : "in " + continent}, ${MONTHS[month]}</h2><ol></ol>`;
+  list.innerHTML = `<h2>Top ${spots.length} ${continent === "All world" ? "in the world" : "in " + continent}, ${MONTHS[month]}</h2><p class="tip">Click the number to see wind strength</p><ol></ol>`;
   const ol = list.querySelector("ol");
 
   // Add in reverse so number 1 is drawn on top of the others.
