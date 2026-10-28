@@ -41,6 +41,28 @@ h1 {
 
 .menu { display: flex; flex-wrap: wrap; gap: 6px; }
 
+.greeting {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 0 auto;
+  font-family: "Pacifico", "Brush Script MT", cursive;
+  font-size: 1.25rem;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+}
+
+.greeting svg {
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: #ffe58a;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 .dd { position: relative; }
 
 .dd-btn {
@@ -206,6 +228,7 @@ footer {
   #list { width: auto; border-left: none; border-top: 1px solid var(--border); }
   .menu { position: relative; width: 100%; }
   .dd { position: static; }
+  .greeting { order: -1; width: 100%; margin: 0; font-size: 1.05rem; }
   .dd-panel { left: 0; right: 0; min-width: 0; }
   .dd-panel::before { display: none; }
 }

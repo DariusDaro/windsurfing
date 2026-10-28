@@ -6,7 +6,10 @@
   <title>Windsurfing Spots</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-  <link rel="stylesheet" href="css/style.css?v=7">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
+  <link rel="stylesheet" href="css/style.css?v=8">
 </head>
 <body>
   <header class="topbar">
@@ -29,6 +32,10 @@
         <div class="dd-panel" role="listbox" aria-label="Continent"></div>
       </div>
     </nav>
+    <p class="greeting">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L12 18 M12 3 C16 7 18 12 18 16 L12 16 Z M12 6 C9 9 7.5 12.5 7 15.5 L12 15.5" /><path d="M3 20 C5 18.5 7 18.5 9 20 S13 21.5 15 20 S19 18.5 21 20" /></svg>
+      Greetings from Pervalka, Lithuania
+    </p>
     <!-- Hidden native selects hold the current values for the map logic. -->
     <select id="month" hidden><option value="">Select a month</option></select>
     <select id="continent" hidden disabled><option value="">Select a continent</option></select>
@@ -48,7 +55,7 @@
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
           integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script src="js/spots.js?v=7"></script>
-  <script src="js/app.js?v=7"></script>
+  <script src="js/spots.js?v=8"></script>
+  <script src="js/app.js?v=8"></script>
 </body>
 </html>
