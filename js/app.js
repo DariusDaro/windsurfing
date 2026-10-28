@@ -27,6 +27,74 @@ monthSelect.addEventListener("change", () => {
 });
 continentSelect.addEventListener("change", update);
 
+// Custom menu-style dropdowns. Each one mirrors a hidden <select> and fires
+// its "change" event, so the map logic only ever reads the selects.
+
+const ICONS = {
+  month: `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>`,
+  continent: `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>`
+};
+
+const dropdowns = [];
+
+function buildDropdown(container, select, icon) {
+  const button = container.querySelector(".dd-btn");
+  const valueEl = container.querySelector(".dd-value");
+  const ul = document.createElement("ul");
+
+  [...select.options].filter(o => o.value !== "").forEach(option => {
+    const li = document.createElement("li");
+    const item = document.createElement("button");
+    item.type = "button";
+    item.className = "dd-option";
+    item.setAttribute("role", "option");
+    item.innerHTML = `${icon}<span>${option.text}</span>`;
+    item.addEventListener("click", () => {
+      select.value = option.value;
+      valueEl.textContent = option.text;
+      ul.querySelectorAll(".dd-option").forEach(el => el.classList.toggle("selected", el === item));
+      close();
+      select.dispatchEvent(new Event("change"));
+    });
+    li.appendChild(item);
+    ul.appendChild(li);
+  });
+  container.querySelector(".dd-panel").appendChild(ul);
+
+  function close() {
+    container.classList.remove("open");
+    button.setAttribute("aria-expanded", "false");
+  }
+
+  button.addEventListener("click", event => {
+    event.stopPropagation();
+    const opening = !container.classList.contains("open");
+    dropdowns.forEach(d => d.close());
+    if (opening) {
+      container.classList.add("open");
+      button.setAttribute("aria-expanded", "true");
+    }
+  });
+
+  const dropdown = { close, button };
+  dropdowns.push(dropdown);
+  return dropdown;
+}
+
+buildDropdown(document.getElementById("month-dd"), monthSelect, ICONS.month);
+const continentDropdown = buildDropdown(document.getElementById("continent-dd"), continentSelect, ICONS.continent);
+
+monthSelect.addEventListener("change", () => {
+  continentDropdown.button.disabled = continentSelect.disabled;
+});
+
+document.addEventListener("click", event => {
+  if (!event.target.closest(".dd")) dropdowns.forEach(d => d.close());
+});
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") dropdowns.forEach(d => d.close());
+});
+
 function directionFor(spot, month) {
   return Array.isArray(spot.dir) ? spot.dir[month] : spot.dir;
 }

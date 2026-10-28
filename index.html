@@ -6,23 +6,32 @@
   <title>Windsurfing Spots</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-  <link rel="stylesheet" href="css/style.css?v=6">
+  <link rel="stylesheet" href="css/style.css?v=7">
 </head>
 <body>
-  <header>
-    <form id="filters" onsubmit="return false">
-      <h1>Best windsurfing spots</h1>
-      <label>Month
-        <select id="month">
-          <option value="">Select a month</option>
-        </select>
-      </label>
-      <label>Continent
-        <select id="continent" disabled>
-          <option value="">Select a continent</option>
-        </select>
-      </label>
-    </form>
+  <header class="topbar">
+    <h1>Best windsurfing spots</h1>
+    <nav class="menu" aria-label="Filters">
+      <div class="dd" id="month-dd">
+        <button type="button" class="dd-btn" aria-haspopup="listbox" aria-expanded="false">
+          <span class="dd-label">Month</span>
+          <span class="dd-value">Select</span>
+          <span class="dd-caret" aria-hidden="true">&#9662;</span>
+        </button>
+        <div class="dd-panel" role="listbox" aria-label="Month"></div>
+      </div>
+      <div class="dd" id="continent-dd">
+        <button type="button" class="dd-btn" aria-haspopup="listbox" aria-expanded="false" disabled>
+          <span class="dd-label">Continent</span>
+          <span class="dd-value">Select</span>
+          <span class="dd-caret" aria-hidden="true">&#9662;</span>
+        </button>
+        <div class="dd-panel" role="listbox" aria-label="Continent"></div>
+      </div>
+    </nav>
+    <!-- Hidden native selects hold the current values for the map logic. -->
+    <select id="month" hidden><option value="">Select a month</option></select>
+    <select id="continent" hidden disabled><option value="">Select a continent</option></select>
   </header>
 
   <main>
@@ -39,7 +48,7 @@
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
           integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script src="js/spots.js?v=6"></script>
-  <script src="js/app.js?v=6"></script>
+  <script src="js/spots.js?v=7"></script>
+  <script src="js/app.js?v=7"></script>
 </body>
 </html>
