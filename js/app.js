@@ -41,7 +41,7 @@ function arrowFor(direction) {
 
 function topSpots(month, continent) {
   return SPOTS
-    .filter(s => s.continent === continent)
+    .filter(s => continent === "All world" || s.continent === continent)
     .map(s => ({ ...s, avg: s.wind[month], direction: directionFor(s, month) }))
     .sort((a, b) => b.avg - a.avg)
     .slice(0, 10);
@@ -85,7 +85,7 @@ function update() {
   const spots = topSpots(month, continent);
   const markers = [];
 
-  list.innerHTML = `<h2>Top ${spots.length} in ${continent}, ${MONTHS[month]}</h2><ol></ol>`;
+  list.innerHTML = `<h2>Top ${spots.length} ${continent === "All world" ? "in the world" : "in " + continent}, ${MONTHS[month]}</h2><ol></ol>`;
   const ol = list.querySelector("ol");
 
   // Add in reverse so number 1 is drawn on top of the others.

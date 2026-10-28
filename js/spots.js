@@ -14,6 +14,7 @@ function seasonal(a, b, bMonths) {
 }
 
 const CONTINENTS = {
+  "All world":     { center: [20, 0],    zoom: 2 },
   "Europe":        { center: [48, 10],   zoom: 4 },
   "Africa":        { center: [2, 20],    zoom: 3 },
   "Asia":          { center: [22, 100],  zoom: 3 },
