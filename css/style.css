@@ -223,18 +223,33 @@ footer {
 
 @media (max-width: 760px) {
   main { flex-direction: column; }
-  #map { flex: none; height: 46vh; min-height: 240px; }
+  #map { flex: none; height: 44vh; min-height: 240px; }
   #list { flex: 1; width: auto; border-left: none; border-top: 1px solid var(--border); }
 
   /* Compact header: greeting, title, then both pickers on one line. */
-  header.topbar { gap: 2px 12px; padding: 6px 10px 4px; }
-  h1 { font-size: 1.1rem; }
+  header.topbar { gap: 4px 12px; padding: 10px 12px 12px; }
+  h1 { font-size: 1.15rem; margin-bottom: 12px; }
   .greeting { order: -1; width: 100%; margin: 0; gap: 6px; font-size: 0.8rem; }
   .greeting svg { width: 22px; height: 22px; }
-  .menu { position: relative; width: 100%; flex-wrap: nowrap; gap: 4px; }
+  .menu { position: relative; width: 100%; flex-wrap: nowrap; gap: 8px; }
   .dd { position: static; flex: 1 1 0; min-width: 0; }
-  .dd-btn { width: 100%; gap: 5px; padding: 7px 8px; font-size: 0.92rem; }
+  .dd-btn {
+    width: 100%;
+    gap: 5px;
+    padding: 9px 10px;
+    font-size: 0.95rem;
+    color: #1f4f4a;
+    background: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+  }
+  .dd-btn:hover:not(:disabled),
+  .dd.open .dd-btn { background: #eef8f5; }
+  .dd-btn:disabled { opacity: 0.7; background: rgba(255, 255, 255, 0.75); }
+  .dd-label { color: #2f8d84; }
+  .dd-caret { color: #2f8d84; }
   .dd-value { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: left; }
-  .dd-panel { top: calc(100% + 4px); left: 0; right: 0; min-width: 0; }
+  .dd-panel { top: calc(100% + 6px); left: 0; right: 0; min-width: 0; }
   .dd-panel::before { display: none; }
 }
